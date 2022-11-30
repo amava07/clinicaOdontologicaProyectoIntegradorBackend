@@ -1,5 +1,5 @@
 package com.DH.demo.service.impl;
-import com.DH.demo.domain.Paciente;
+import com.DH.demo.domain.model.Paciente;
 import com.DH.demo.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

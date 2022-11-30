@@ -1,5 +1,6 @@
 package com.DH.demo.service.impl;
-import com.DH.demo.domain.Odontologo;
+import com.DH.demo.domain.model.Odontologo;
+import com.DH.demo.exceptions.InvalidIDException;
 import com.DH.demo.repository.OdontologoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +27,12 @@ public class OdontologoServiceImpl {
     }
 
     //Método Eliminar Odontologo
-    public void eliminar(Integer id) {
-        odontologoRepository.deleteById(Integer.valueOf(id));
+    public void eliminar(Integer id) throws InvalidIDException {
+        if(id != null && id > 0) {
+            odontologoRepository.deleteById(Integer.valueOf(id));
+        }else {
+            throw new InvalidIDException("Id inválido");
+        }
     }
 
 

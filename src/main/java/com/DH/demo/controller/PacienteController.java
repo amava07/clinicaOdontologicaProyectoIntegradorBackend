@@ -1,5 +1,5 @@
 package com.DH.demo.controller;
-import com.DH.demo.domain.Paciente;
+import com.DH.demo.domain.model.Paciente;
 import com.DH.demo.service.impl.PacienteServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

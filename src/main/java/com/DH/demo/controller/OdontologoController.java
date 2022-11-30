@@ -1,5 +1,6 @@
 package com.DH.demo.controller;
-import com.DH.demo.domain.Odontologo;
+import com.DH.demo.domain.model.Odontologo;
+import com.DH.demo.exceptions.InvalidIDException;
 import com.DH.demo.service.impl.OdontologoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,8 +49,9 @@ public class OdontologoController {
 
     }
 
+
     @DeleteMapping ("/{id}")
-    public ResponseEntity<String> eliminar(@PathVariable Integer id){
+    public ResponseEntity<String> eliminar(@PathVariable Integer id) throws InvalidIDException {
         ResponseEntity<String> response = null;
         if (odontologoService.buscar(id).isPresent()){
             odontologoService.eliminar(id);

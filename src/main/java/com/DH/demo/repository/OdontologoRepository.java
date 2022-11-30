@@ -1,5 +1,5 @@
 package com.DH.demo.repository;
-import com.DH.demo.domain.Odontologo;
+import com.DH.demo.domain.model.Odontologo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
