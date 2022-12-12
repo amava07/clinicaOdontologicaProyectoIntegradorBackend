@@ -1,8 +1,11 @@
 package com.DH.demo.domain.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Data
@@ -15,14 +18,26 @@ import javax.persistence.*;
 public class Odontologo {
 
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
-    @Column ( name = "odontologo_Id")
+    @SequenceGenerator(name = "odontologo_sequence", sequenceName = "odontologo_sequence")
+    @GeneratedValue( strategy = GenerationType.SEQUENCE)
 
     //Attributes
     private Integer id;
+
+    @Column
     private String nombre;
+
+    @Column
     private String apellido;
+
+    @Column
     private String matricula;
+
+    @Column
+    private Integer dni;
+    @OneToMany(mappedBy = "odontologo", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    private List<Turno> turnos = new ArrayList<>();
 
 
 }

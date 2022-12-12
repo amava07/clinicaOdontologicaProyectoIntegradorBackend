@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -11,10 +12,14 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 
-public class PacienteDTO {
+public class PacienteDTO implements DTO {
+
+
+    private  Integer id;
     private String nombre;
     private String apellido;
     private String domicilio;
     private Integer dni;
-    private LocalDateTime fechaDeAlta;
+    private LocalDate fechaDeAlta;
+
 }

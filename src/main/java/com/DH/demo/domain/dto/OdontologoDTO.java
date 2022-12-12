@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @JsonIgnoreProperties (ignoreUnknown = true)
 
-public class OdontologoDTO {
+public class OdontologoDTO implements  DTO{
 
+    private Integer id;
+    private Integer dni;
     private String nombre;
     private String apellido;
     private String matricula;
